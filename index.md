@@ -143,4 +143,4 @@ pacaur -S plymouth-theme-arch-breeze-git
 sudo plymouth-set-default-theme -R arch-breeze
 
 ```
-After that add ```splash``` in grub with grub customizer.
+After that add ```splash``` in grub with grub customizer. For silent bot(removing boot message), you should add ` loglevel=3 rd.systemd.show_status=auto rd.udev.log_priority=3` in grub after splash command.
