@@ -92,7 +92,7 @@ sudo cp -v /usr/share/gnome-shell/gnome-shell-theme.gresource{,~}
 GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | sed "s/'//g")
 sudo cp -v /usr/share{/themes/$GTK_THEME,}/gnome-shell/gnome-shell-theme.gresource
 ```
-For closing bluetooth and nightlight;
+#### For closing bluetooth and nightlight;
 ```
 sudo machinectl shell
 sudo systemctl stop bluetooth.service
@@ -101,7 +101,7 @@ systemctl status bluetooth.service
 sudo systemctl mask bluetooth.service
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
 ```
-Libre Office icon;
+#### Libre Office icon;
 ```
 pacaur -S papirus-libreoffice-theme
 ```
@@ -123,13 +123,13 @@ UUID=DAF6FE7CF6FE5869 /run/media/oguz/D ntfs auto,user,rw 0 2
 UUID=C480917680917022 /run/media/oguz/E ntfs auto,user,rw 0 2
 ```
 Save it.
-For Android Studio(KVM);
+#### For Android Studio(KVM);
 ```
 sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 ```
-For equalizer;
+#### For equalizer;
 ```
 sudo pacman -S pulseaudio-equalizer
 sudo pacman -S pavucontrol
@@ -143,15 +143,15 @@ Add these;
 load-module module-equalizer-sink
 load-module module-dbus-protocol
 ```
-For grub theme;
+#### For grub theme;
 https://www.gnome-look.org/p/1009236/
 download it and setup with ```./Install```
-For Changing for default kernel or OS on boot;
+#### For Changing for default kernel or OS on boot;
 ```
 pacaur -S grub-customizer
 ```
 Not:If you get any problem on boot, you can apply https://wiki.manjaro.org/index.php/Restore_the_GRUB_Bootloader#For_UEFI_Systems
-Install plymount;
+#### Install plymount (Opening screen-splash sreen);
 ```
 pacaur -S plymouth-theme-arch-breeze-git
 sudo plymouth-set-default-theme -R arch-breeze
