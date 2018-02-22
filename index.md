@@ -129,6 +129,20 @@ sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netc
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 ```
+For equalizer;
+```
+sudo pacman -S pulseaudio-equalizer
+sudo pacman -S pavucontrol
+pactl load-module module-equalizer-sink
+pactl load-module module-dbus-protocol
+sudo gedit /etc/pulse/default.pa
+```
+Add these;
+```
+### Load the integrated PulseAudio equalizer and D-Bus module
+load-module module-equalizer-sink
+load-module module-dbus-protocol
+```
 For grub theme;
 https://www.gnome-look.org/p/1009236/
 download it and setup with ```./Install```
