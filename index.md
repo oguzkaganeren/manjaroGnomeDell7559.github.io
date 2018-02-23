@@ -59,6 +59,7 @@ sudo pacman -S --noconfirm --needed unclutter
 sudo pacman -S --noconfirm --needed rxvt-unicode
 sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract
 sudo pacman -S --noconfirm --needed base-devel
+sudo pacman -S spyder3
 sudo pacman -S pacaur
 ```
 ```
@@ -78,6 +79,7 @@ pacaur -S insync
 pacaur -S gradio peek radiotray
 pacaur -S arc-gtk-theme downgrade paper-icon-theme papirus-icon-theme ttf-font-awesome
 pacaur -S hardcode-fixer-git
+pacaur -S uget-chrome-wrapper
 sudo hardcode-fixer
 sudo pacman -S ttf-roboto --noconfirm --needed
 sudo pacman -S adobe-source-sans-pro-fonts --noconfirm --needed
