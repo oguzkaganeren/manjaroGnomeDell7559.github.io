@@ -1,6 +1,6 @@
 ## Dell Inspiron 7559 Manjaro Linux Guide
 
-You can download ise here https://downloads.sourceforge.net/manjarolinux/manjaro-gnome-17.1.4-stable-x86_64.iso and prepare bootable disk with rufus. After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. 
+You can download ise here[Link](https://downloads.sourceforge.net/manjarolinux/manjaro-gnome-17.1.4-stable-x86_64.iso)  and prepare bootable disk with rufus[Link](https://rufus.akeo.ie/) . After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. When your system is ready for installiation, you should apply these steps for getting any error.
 ```
 sudo gedit /lib/calamares/modules/mhwdcfg/main.py
 ```
@@ -14,7 +14,7 @@ def run():
     # return mhwd.run()
     return None # <- Add this and comment the above line
 ```
-Now, you can start the installiation.
+Now, you can start the installiation.[Here](https://www.linuxtechi.com/manjaro-17-05-gnome-installation-guide-screenshots/)
 **After the installiation**
 add `systemd.mask=mhwd-live.service and acpi_osi=! acpi_osi="Windows 2009" ` at boot with press e.
 Don't forget to add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT on` /etc/default/grub` and run `sudo update-grub`
