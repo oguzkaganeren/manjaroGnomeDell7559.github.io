@@ -60,33 +60,26 @@ sudo pacman -S --noconfirm --needed rxvt-unicode
 sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract
 sudo pacman -S --noconfirm --needed base-devel
 sudo pacman -S spyder3
-sudo pacman -S pacaur
+sudo pacman -S yaourt
 ```
+
 ```
-sudo gedit /etc/xdg/pacaur/config
-```
-add these;
-```
-editpkgbuild=false
-editinstall=false
-```
-```
-pacaur -S whatsapp-desktop
-pacaur -S cool-retro-term
-pacaur -S temps
-pacaur -S vivaldi
-pacaur -S insync
-pacaur -S gradio peek radiotray
-pacaur -S arc-gtk-theme downgrade paper-icon-theme papirus-icon-theme ttf-font-awesome
-pacaur -S hardcode-fixer-git
-pacaur -S uget-chrome-wrapper
+yaourt -S whatsapp-desktop
+yaourt -S cool-retro-term
+yaourt -S temps
+yaourt -S vivaldi
+yaourt -S insync
+yaourt -S gradio peek radiotray
+yaourt -S arc-gtk-theme downgrade paper-icon-theme papirus-icon-theme ttf-font-awesome
+yaourt -S hardcode-fixer-git
+yaourt -S uget-chrome-wrapper
 sudo hardcode-fixer
 sudo pacman -S ttf-roboto --noconfirm --needed
 sudo pacman -S adobe-source-sans-pro-fonts --noconfirm --needed
-pacaur -S conky-lua-archers
-pacaur -S android-studio
-pacaur -S eclipse-java
-pacaur -S materia-theme
+yaourt -S conky-lua-archers
+yaourt -S android-studio
+yaourt -S eclipse-java
+yaourt -S materia-theme
 ```
 Select Materia-theme on tweak tools.
 ```
@@ -105,7 +98,7 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
 ```
 #### Libre Office icon;
 ```
-pacaur -S papirus-libreoffice-theme
+yaourt -S papirus-libreoffice-theme
 ```
 After that;
 LibreOffice->tools->options->View->Icon Style->Papirus
@@ -150,12 +143,12 @@ https://www.gnome-look.org/p/1009236/
 download it and setup with ```./Install```
 #### For Changing for default kernel or OS on boot;
 ```
-pacaur -S grub-customizer
+yaourt -S grub-customizer
 ```
 Not:If you get any problem on boot, you can apply https://wiki.manjaro.org/index.php/Restore_the_GRUB_Bootloader#For_UEFI_Systems
 #### Install plymount (Opening screen-splash sreen);
 ```
-pacaur -S plymouth-theme-arch-breeze-git
+yaourt -S plymouth-theme-arch-breeze-git
 sudo plymouth-set-default-theme -R arch-breeze
 
 ```
