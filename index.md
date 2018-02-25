@@ -32,15 +32,7 @@ sudo systemctl enable bumblebeed
 sudo reboot
 optirun -b none nvidia-settings -c :8
 ```
-### shortkey
-For showing desktop:
-```
-wnckprop --show-desktop
-```
-You change ctrl+alt+delete default value and add that;
-```
-gnome-system-monitor
-```
+
 ### For Extra
 ```
 sudo pacman -S --noconfirm --needed  aria2
@@ -71,7 +63,16 @@ sudo pacman -S --noconfirm --needed base-devel
 sudo pacman -S spyder3
 sudo pacman -S yaourt
 ```
-### Editing yaourt and terminal
+#### Shortkey
+For showing desktop:
+```
+wnckprop --show-desktop
+```
+You change ctrl+alt+delete default value and add that;
+```
+gnome-system-monitor
+```
+#### Editing yaourt and terminal
 ```
 sudo gedit ~/.yaourtrc
 ```
@@ -85,7 +86,7 @@ sudo gedit ~/.bashrc
 ```
 add that at bottom;
 ```
-if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
+if [ -f /usr/bin/screenfetch ]; then screenfetch -D arch; fi
 ```
 ```
 yaourt -S whatsapp-desktop
