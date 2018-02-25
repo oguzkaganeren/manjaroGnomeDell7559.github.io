@@ -60,6 +60,7 @@ sudo pacman -S --noconfirm --needed unclutter
 sudo pacman -S --noconfirm --needed rxvt-unicode
 sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract
 sudo pacman -S --noconfirm --needed base-devel
+sudo pacman -S youtube-dl
 sudo pacman -S spyder3
 sudo pacman -S yaourt
 ```
@@ -106,6 +107,7 @@ yaourt -S conky-lua-archers
 yaourt -S android-studio
 yaourt -S eclipse-java
 yaourt -S materia-theme
+yaourt -S youtube-dl-gui-git
 ```
 Select Materia-theme on tweak tools.
 ```
