@@ -62,6 +62,7 @@ sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj
 sudo pacman -S --noconfirm --needed base-devel
 sudo pacman -S youtube-dl
 sudo pacman -S spyder3
+sudo pacman -S  xorg-xrandr
 sudo pacman -S yaourt
 ```
 #### Shortkey
