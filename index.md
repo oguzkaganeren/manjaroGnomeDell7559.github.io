@@ -79,6 +79,7 @@ sudo gedit ~/.yaourtrc
 ```
 and add that;
 ```
+BUILD_NOCONFIRM=1
 EDITFILES=0
 ```
 For Terminal;
