@@ -71,7 +71,14 @@ sudo pacman -S --noconfirm --needed base-devel
 sudo pacman -S spyder3
 sudo pacman -S yaourt
 ```
-
+### Editing yaourt
+```
+sudo gedit ~/.yaourtrc
+```
+and add that:
+```
+EDITFILES=0
+```
 ```
 yaourt -S whatsapp-desktop
 yaourt -S cool-retro-term
