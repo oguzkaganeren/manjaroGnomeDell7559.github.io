@@ -78,6 +78,7 @@ yaourt -S gradio peek radiotray
 yaourt -S arc-gtk-theme downgrade paper-icon-theme papirus-icon-theme ttf-font-awesome
 yaourt -S hardcode-fixer-git
 yaourt -S uget-chrome-wrapper
+yaourt -S gnome-terminal-transparency
 sudo hardcode-fixer
 sudo pacman -S ttf-roboto --noconfirm --needed
 sudo pacman -S adobe-source-sans-pro-fonts --noconfirm --needed
