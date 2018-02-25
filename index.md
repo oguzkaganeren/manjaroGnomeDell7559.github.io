@@ -37,6 +37,10 @@ For showing desktop:
 ```
 wnckprop --show-desktop
 ```
+You change ctrl+alt+delete default value and add that;
+```
+gnome-system-monitor
+```
 ### For Extra
 ```
 sudo pacman -S --noconfirm --needed  aria2
