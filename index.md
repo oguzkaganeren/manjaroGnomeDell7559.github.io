@@ -71,13 +71,21 @@ sudo pacman -S --noconfirm --needed base-devel
 sudo pacman -S spyder3
 sudo pacman -S yaourt
 ```
-### Editing yaourt
+### Editing yaourt and terminal
 ```
 sudo gedit ~/.yaourtrc
 ```
-and add that:
+and add that;
 ```
 EDITFILES=0
+```
+For Terminal;
+```
+sudo gedit ~/.bashrc
+```
+add that at bottom;
+```
+if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
 ```
 ```
 yaourt -S whatsapp-desktop
