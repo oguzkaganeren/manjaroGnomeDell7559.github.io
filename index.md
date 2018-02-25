@@ -32,6 +32,11 @@ sudo systemctl enable bumblebeed
 sudo reboot
 optirun -b none nvidia-settings -c :8
 ```
+### shortkey
+For showing desktop:
+```
+wnckprop --show-desktop
+```
 ### For Extra
 ```
 sudo pacman -S --noconfirm --needed  aria2
