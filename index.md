@@ -16,7 +16,7 @@ def run():
 ```
 Now, you can start the installiation.[Here](https://www.linuxtechi.com/manjaro-17-05-gnome-installation-guide-screenshots/)
 **After the installiation**
-add `systemd.mask=mhwd-live.service and acpi_osi=! acpi_osi="Windows 2009" ` at boot with press e.
+add ```systemd.mask=mhwd-live.service acpi_osi=! acpi_osi="Windows 2009" ``` at boot with press e.
 Don't forget to add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT on` /etc/default/grub` and run `sudo update-grub`
 For Fastest pacman mirror;
 ```
