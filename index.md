@@ -34,6 +34,7 @@ sudo systemctl enable bumblebeed
 sudo reboot
 optirun -b none nvidia-settings -c :8
 ```
+here[Link](https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_settings_and_load_them_on_Startup#Bumblebee_and_Steam)
 
 ### For Extra
 ```
