@@ -24,6 +24,10 @@ For Fastest pacman mirror;
 ```
 sudo pacman-mirrors -f -b stable
 ```
+### Open Wifi Hotspot
+```
+sudo create_ap wlp5s0 wlp5s0 MyAccessPoint password
+```
 ### For Nvidia
 ```
 sudo pacman -S virtualgl lib32-virtualgl lib32-primus primus
