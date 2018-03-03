@@ -132,6 +132,7 @@ sudo systemctl disable bluetooth.service
 systemctl status bluetooth.service
 sudo systemctl mask bluetooth.service
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
 ```
 #### Libre Office icon;
 ```
