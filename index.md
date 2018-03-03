@@ -117,6 +117,7 @@ yaourt -S android-studio
 yaourt -S eclipse-java
 yaourt -S materia-theme
 yaourt -S youtube-dl-gui-git
+yaourt -S gnome-shell-extension-installer
 ```
 Select Materia-theme on tweak tools.
 ```
