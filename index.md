@@ -42,35 +42,36 @@ here[Link](https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_
 
 ### For Extra
 ```
-sudo pacman -S --noconfirm --needed  aria2
-sudo pacman -S --noconfirm --needed cmatrix
-sudo pacman -S --noconfirm --needed variety
-sudo pacman -S --noconfirm --needed atom
-sudo pacman -S --noconfirm --needed git
-sudo pacman -S --noconfirm --needed chromium
-sudo pacman -S --noconfirm --needed deepin-movie
-sudo pacman -S --noconfirm --needed archey3
-sudo pacman -S --noconfirm --needed bleachbit
-sudo pacman -S --noconfirm --needed grsync
-sudo pacman -S --noconfirm --needed gtk-engine-murrine
-sudo pacman -S --noconfirm --needed hardinfo
-sudo pacman -S --noconfirm --needed hddtemp
-sudo pacman -S --noconfirm --needed htop
-sudo pacman -S --noconfirm --needed mlocate
-sudo pacman -S --noconfirm --needed net-tools
-sudo pacman -S --noconfirm --needed screenfetch
-sudo pacman -S --noconfirm --needed scrot
-sudo pacman -S --noconfirm --needed sysstat
-sudo pacman -S --noconfirm --needed ttf-ubuntu-font-family
-sudo pacman -S --noconfirm --needed tumbler
-sudo pacman -S --noconfirm --needed unclutter
-sudo pacman -S --noconfirm --needed rxvt-unicode
-sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract
-sudo pacman -S --noconfirm --needed base-devel
-sudo pacman -S youtube-dl
-sudo pacman -S spyder3
-sudo pacman -S  xorg-xrandr
-sudo pacman -S yaourt
+sudo pacman -S --noconfirm --needed powerpill
+sudo powerpill -S --noconfirm --needed aria2
+sudo powerpill -S --noconfirm --needed cmatrix
+sudo powerpill -S --noconfirm --needed variety
+sudo powerpill -S --noconfirm --needed atom
+sudo powerpill -S --noconfirm --needed git
+sudo powerpill -S --noconfirm --needed chromium
+sudo powerpill -S --noconfirm --needed deepin-movie
+sudo powerpill -S --noconfirm --needed archey3
+sudo powerpill -S --noconfirm --needed bleachbit
+sudo powerpill -S --noconfirm --needed grsync
+sudo powerpill -S --noconfirm --needed gtk-engine-murrine
+sudo powerpill -S --noconfirm --needed hardinfo
+sudo powerpill -S --noconfirm --needed hddtemp
+sudo powerpill -S --noconfirm --needed htop
+sudo powerpill -S --noconfirm --needed mlocate
+sudo powerpill -S --noconfirm --needed net-tools
+sudo powerpill -S --noconfirm --needed screenfetch
+sudo powerpill -S --noconfirm --needed scrot
+sudo powerpill -S --noconfirm --needed sysstat
+sudo powerpill -S --noconfirm --needed ttf-ubuntu-font-family
+sudo powerpill -S --noconfirm --needed tumbler
+sudo powerpill -S --noconfirm --needed unclutter
+sudo powerpill -S --noconfirm --needed rxvt-unicode
+sudo powerpill -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract
+sudo powerpill -S --noconfirm --needed base-devel
+sudo powerpill -S youtube-dl
+sudo powerpill -S spyder3
+sudo powerpill -S  xorg-xrandr
+sudo powerpill -S yaourt
 ```
 #### Shortkey
 For showing desktop:
@@ -110,8 +111,8 @@ yaourt -S hardcode-fixer-git
 yaourt -S uget-chrome-wrapper
 yaourt -S gnome-terminal-transparency
 sudo hardcode-fixer
-sudo pacman -S ttf-roboto --noconfirm --needed
-sudo pacman -S adobe-source-sans-pro-fonts --noconfirm --needed
+sudo powerpill -S ttf-roboto --noconfirm --needed
+sudo powerpill -S adobe-source-sans-pro-fonts --noconfirm --needed
 yaourt -S conky-lua-archers
 yaourt -S android-studio
 yaourt -S eclipse-java
@@ -159,14 +160,14 @@ UUID=C480917680917022 /run/media/oguz/E ntfs auto,user,rw 0 2
 Save it.
 #### For Android Studio(KVM);
 ```
-sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+sudo powerpill -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 ```
 #### For equalizer;
 ```
-sudo pacman -S pulseaudio-equalizer
-sudo pacman -S pavucontrol
+sudo powerpill -S pulseaudio-equalizer
+sudo powerpill -S pavucontrol
 pactl load-module module-equalizer-sink
 pactl load-module module-dbus-protocol
 sudo gedit /etc/pulse/default.pa
