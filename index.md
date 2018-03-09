@@ -68,6 +68,7 @@ sudo powerpill -S --noconfirm --needed unclutter
 sudo powerpill -S --noconfirm --needed rxvt-unicode
 sudo powerpill -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract
 sudo powerpill -S --noconfirm --needed base-devel
+sudo powerpill -S speedtest-cli
 sudo powerpill -S youtube-dl
 sudo powerpill -S spyder3
 sudo powerpill -S  xorg-xrandr
@@ -119,6 +120,7 @@ yaourt -S eclipse-java
 yaourt -S materia-theme
 yaourt -S youtube-dl-gui-git
 yaourt -S gnome-shell-extension-installer
+yaourt -S ungoogled-chromium
 ```
 Select Materia-theme on tweak tools.
 ```
