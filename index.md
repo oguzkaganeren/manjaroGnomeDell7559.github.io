@@ -76,6 +76,10 @@ sudo powerpill -S terminator
 sudo powerpill -S fish
 sudo powerpill -S yaourt
 ```
+In the terminator write this;
+```
+chsh -s /usr/bin/fish
+```
 #### Shortkey
 For showing desktop:
 ```
