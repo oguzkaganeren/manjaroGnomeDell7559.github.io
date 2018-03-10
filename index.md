@@ -111,6 +111,7 @@ yaourt -S arc-gtk-theme downgrade paper-icon-theme papirus-icon-theme ttf-font-a
 yaourt -S hardcode-fixer-git
 yaourt -S uget-chrome-wrapper
 yaourt -S gnome-terminal-transparency
+yaourt -S undistract-me-git
 sudo hardcode-fixer
 sudo powerpill -S ttf-roboto --noconfirm --needed
 sudo powerpill -S adobe-source-sans-pro-fonts --noconfirm --needed
