@@ -73,6 +73,7 @@ sudo powerpill -S youtube-dl
 sudo powerpill -S spyder3
 sudo powerpill -S  xorg-xrandr
 sudo powerpill -S terminator
+sudo powerpill -S fish
 sudo powerpill -S yaourt
 ```
 #### Shortkey
