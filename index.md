@@ -80,6 +80,9 @@ In the terminator write this;
 ```
 chsh -s /usr/bin/fish
 ```
+after that,
+https://github.com/oh-my-fish/oh-my-fish
+install it.
 #### Shortkey
 For showing desktop:
 ```
