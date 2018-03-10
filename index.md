@@ -82,7 +82,16 @@ chsh -s /usr/bin/fish
 ```
 after that,
 https://github.com/oh-my-fish/oh-my-fish
+```
+curl -L https://get.oh-my.fish | fish
+```
 install it.
+```
+omf install bobthefish
+omf theme bobthefish
+```
+There are lots of theme.https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md
+
 #### Shortkey
 For showing desktop:
 ```
