@@ -89,15 +89,6 @@ yaourt -S zsh-autosuggestions
 echo 'source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
 
 ```
-install it.
-```
-omf install bobthefish
-omf theme bobthefish
-sudo mv /usr/bin/gnome-terminal /usr/bin/gnome-terminal.bak
-sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
-```
-There are lots of theme.https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md
-For shell font colors change `.config/fish/fishd.oguz-pc` with the file in the repo.
 
 #### Shortkey
 For showing desktop:
