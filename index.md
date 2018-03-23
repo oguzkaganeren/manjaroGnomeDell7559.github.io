@@ -210,6 +210,11 @@ download it and setup with ```./Install```
 ```
 yaourt -S grub-customizer
 ```
+You can add `sudo nano /etc/default/grub` To disable sub menus on your end please add the following line:
+```
+GRUB_DISABLE_SUBMENU=y
+```
+
 Not:If you get any problem on boot, you can apply https://wiki.manjaro.org/index.php/Restore_the_GRUB_Bootloader#For_UEFI_Systems
 #### Install plymount (Opening screen-splash sreen);
 ```
