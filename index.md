@@ -74,17 +74,20 @@ sudo powerpill -S youtube-dl
 sudo powerpill -S spyder3
 sudo powerpill -S  xorg-xrandr
 sudo powerpill -S terminator
-sudo powerpill -S fish
 sudo powerpill -S yaourt
+sudo yaourt -S oh-my-zsh-git
 ```
-In the terminator write this;
+In the terminal write this;
 ```
-chsh -s /usr/bin/fish
+chsh -s /usr/bin/zsh
 ```
 after that,
-https://github.com/oh-my-fish/oh-my-fish
 ```
-curl -L https://get.oh-my.fish | fish
+sudo powerpill -S zsh-theme-powerlevel9k 
+echo 'source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
+yaourt -S zsh-autosuggestions 
+echo 'source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
+
 ```
 install it.
 ```
