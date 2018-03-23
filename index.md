@@ -43,6 +43,7 @@ here[Link](https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_
 ### For Extra
 ```
 sudo pacman -S --noconfirm --needed powerpill
+sudo powerpill -S xf86-video-fbdev --noconfirm --needed
 sudo powerpill -S --noconfirm --needed aria2
 sudo powerpill -S --noconfirm --needed cmatrix
 sudo powerpill -S --noconfirm --needed variety
