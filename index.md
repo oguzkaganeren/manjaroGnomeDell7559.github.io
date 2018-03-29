@@ -217,9 +217,9 @@ sudo plymouth-set-default-theme -R arch-breeze
 
 ```
 After that add ```splash``` in grub with grub customizer. For silent bot(removing boot message), you should add ` loglevel=3 rd.systemd.show_status=auto rd.udev.log_priority=3` in grub after splash command.
-### Solving Problems
+# Solving Problems
 ## Android Studio
-# The Error
+If you get
 `
 libGL error: unable to load driver: i965_dri.so
 `
