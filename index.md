@@ -173,8 +173,8 @@ sudo gedit //etc/fstab
 At bottom added these;
 
 ```
-UUID=DAF6FE7CF6FE5869 /run/media/oguz/D ntfs auto,user,rw 0 2
-UUID=C480917680917022 /run/media/oguz/E ntfs auto,user,rw 0 2
+UUID=DAF6FE7CF6FE5869 /run/media/oguz/D ntfs rw,user,exec,umask=000 0 2
+UUID=C480917680917022 /run/media/oguz/E ntfs rw,user,exec,umask=000 0 2
 ```
 Save it.
 #### For Android Studio(KVM);
@@ -217,3 +217,14 @@ sudo plymouth-set-default-theme -R arch-breeze
 
 ```
 After that add ```splash``` in grub with grub customizer. For silent bot(removing boot message), you should add ` loglevel=3 rd.systemd.show_status=auto rd.udev.log_priority=3` in grub after splash command.
+### Solving Problems
+## Android Studio
+# The Error
+`
+libGL error: unable to load driver: i965_dri.so
+`
+Open terminal in your SDK folder `/emulator/lib64/libstdc++`
+```
+mv libstdc++.so.6 libstdc++.so.6.bak
+ln -s /usr/lib64/libstdc++.so.6
+```
