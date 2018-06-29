@@ -22,7 +22,7 @@ at boot with press e.
 Don't forget to add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT on` /etc/default/grub` and run `sudo update-grub`
 For Fastest pacman mirror;
 ```
-sudo pacman-mirrors -f -b stable
+sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 ```
 ### Open Wifi Hotspot
 ```
