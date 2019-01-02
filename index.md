@@ -40,42 +40,37 @@ optirun -b none nvidia-settings -c :8
 ```
 here[Link](https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_settings_and_load_them_on_Startup#Bumblebee_and_Steam)
 
-### For Extra
+### Packages I use
 ```
-sudo pacman -S --noconfirm --needed powerpill
-sudo powerpill -S xf86-video-fbdev --noconfirm --needed
-sudo powerpill -S --noconfirm --needed aria2
-sudo powerpill -S --noconfirm --needed cmatrix
-sudo powerpill -S --noconfirm --needed variety
-sudo powerpill -S --noconfirm --needed atom
-sudo powerpill -S --noconfirm --needed git
-sudo powerpill -S --noconfirm --needed chromium
-sudo powerpill -S --noconfirm --needed deepin-movie
-sudo powerpill -S --noconfirm --needed archey3
-sudo powerpill -S --noconfirm --needed bleachbit
-sudo powerpill -S --noconfirm --needed grsync
-sudo powerpill -S --noconfirm --needed gtk-engine-murrine
-sudo powerpill -S --noconfirm --needed hardinfo
-sudo powerpill -S --noconfirm --needed hddtemp
-sudo powerpill -S --noconfirm --needed htop
-sudo powerpill -S --noconfirm --needed mlocate
-sudo powerpill -S --noconfirm --needed net-tools
-sudo powerpill -S --noconfirm --needed screenfetch
-sudo powerpill -S --noconfirm --needed scrot
-sudo powerpill -S --noconfirm --needed sysstat
-sudo powerpill -S --noconfirm --needed ttf-ubuntu-font-family
-sudo powerpill -S --noconfirm --needed tumbler
-sudo powerpill -S --noconfirm --needed unclutter
-sudo powerpill -S --noconfirm --needed rxvt-unicode
-sudo powerpill -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract
-sudo powerpill -S --noconfirm --needed base-devel
-sudo powerpill -S speedtest-cli
-sudo powerpill -S youtube-dl
-sudo powerpill -S spyder3
-sudo powerpill -S  xorg-xrandr
-sudo powerpill -S terminator
-sudo powerpill -S yaourt
-sudo yaourt -S oh-my-zsh-git
+sudo pacman -S --noconfirm --needed git pulseaudio pulseaudio-alsa alsa-utils alsa-plugins pavucontrol aria2 screenfetch ttf-ubuntu-font-family rxvt-unicode unace unrar zip unzip sharutils uudeview arj cabextract speedtest-cli ntp deepin-movie virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat tlp tlp-rdw iw smartmontools ethtool x86_energy_perf_policy lm_sensors thermald trizen intel-ucode xf86-video-fbdev deepin-calculator telegram-desktop gimp kdenlive inkscape terminus-font gufw firejail create_ap gedit virtualbox mtpaint
+```
+### Power Settings
+```
+sudo timedatectl set-ntp true
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+sudo systemctl mask systemd-rfkill.socket systemd-rfkill.service
+sudo sensors-detect
+sudo systemctl enable thermald
+sudo systemctl start thermald
+```
+### INTEL - Enable Early Kernel Mode Setting for i915 module.
+Edit /etc/mkinitcpio.conf file and in MODULES section add i915.
+```
+# MODULES
+# The following modules are loaded before any boot hooks are
+# run.  Advanced users may wish to specify all system modules
+# in this array.  For instance:
+#     MODULES=(piix ide_disk reiserfs)
+MODULES=(i915)
+```
+Save and
+```
+sudo mkinitcpio -P
+```
+### Aur Packages I use
+```
+trizen -S --noedit materia-theme opera chromium spotify ttf-font-awesome ttf-font-awesome-4 powerline-fonts ttf-roboto  adobe-source-sans-pro-fonts android-studio woeusb-git visual-studio-code-bin papirus-icon-theme ntfs-3g  jdownloader2 ttf-ms-fonts ephifonts otf-exo oh-my-zsh-git uGet-Integrator
 ```
 In the terminal write this;
 ```
@@ -83,9 +78,9 @@ chsh -s /usr/bin/zsh
 ```
 after that,
 ```
-sudo powerpill -S zsh-theme-powerlevel9k 
+sudo pacman -S zsh-theme-powerlevel9k 
 echo 'source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
-yaourt -S zsh-autosuggestions 
+trizen -S zsh-autosuggestions 
 echo 'source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
 
 ```
@@ -99,15 +94,7 @@ You change ctrl+alt+delete default value and add that;
 ```
 gnome-system-monitor
 ```
-#### Editing yaourt and terminal
-```
-sudo gedit ~/.yaourtrc
-```
-and add that;
-```
-BUILD_NOCONFIRM=1
-EDITFILES=0
-```
+#### Editing terminal
 For Terminal;
 ```
 sudo gedit ~/.bashrc
@@ -115,29 +102,6 @@ sudo gedit ~/.bashrc
 add that at bottom;
 ```
 if [ -f /usr/bin/screenfetch ]; then screenfetch -D arch; fi
-```
-```
-yaourt -S whatsapp-desktop
-yaourt -S cool-retro-term
-yaourt -S temps
-yaourt -S vivaldi
-yaourt -S insync
-yaourt -S gradio peek radiotray
-yaourt -S arc-gtk-theme downgrade paper-icon-theme papirus-icon-theme ttf-font-awesome
-yaourt -S hardcode-fixer-git
-yaourt -S uget-chrome-wrapper
-yaourt -S gnome-terminal-transparency
-yaourt -S undistract-me-git
-sudo hardcode-fixer
-sudo powerpill -S ttf-roboto --noconfirm --needed
-sudo powerpill -S adobe-source-sans-pro-fonts --noconfirm --needed
-yaourt -S conky-lua-archers
-yaourt -S android-studio
-yaourt -S eclipse-java
-yaourt -S materia-theme
-yaourt -S youtube-dl-gui-git
-yaourt -S gnome-shell-extension-installer
-yaourt -S ungoogled-chromium
 ```
 Select Materia-theme on tweak tools.
 ```
@@ -157,62 +121,41 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-autom
 ```
 #### Libre Office icon;
 ```
-yaourt -S papirus-libreoffice-theme
+trizen -S papirus-libreoffice-theme
 ```
 After that;
 LibreOffice->tools->options->View->Icon Style->Papirus
----AutoMount(You should change same code to your partiton(fstab))
-You can show UUID with;
+### For Other Partitations
+If you have another partition(E, D etc.). You can mount it on the startup. Thus some applications which are using other partitions don't get an error.
+
 ```
 lsblk -f
 ```
+The command shows your disks uuid.
 ```
-sudo gedit //etc/fstab
+sudo gedit /etc/fstab 
+```
+Open your fstab config with the command. You should add codes similar to the following example. You should change UUID and /run/media/yourUserName/Partition.
+```
+UUID=DAF6FE7CF6FE5869 /run/media/oguz/D ntfs-3g defaults  0 0
+UUID=C480917680917022 /run/media/oguz/E ntfs-3g defaults  0 0
+```
 
-```
-At bottom added these;
-
-```
-UUID=DAF6FE7CF6FE5869 /run/media/oguz/D ntfs rw,user,exec,umask=000 0 2
-UUID=C480917680917022 /run/media/oguz/E ntfs rw,user,exec,umask=000 0 2
-```
-Save it.
+>  :exclamation: If you use manjaro with dual boot, you should close fast-startup,hibarnate on your Windows, otherwise, you have not a write permission for other partitions.
 #### For Android Studio(KVM);
 ```
 sudo powerpill -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 ```
-#### For equalizer;
-```
-sudo powerpill -S pulseaudio-equalizer
-sudo powerpill -S pavucontrol
-pactl load-module module-equalizer-sink
-pactl load-module module-dbus-protocol
-sudo gedit /etc/pulse/default.pa
-```
-Add these;
-```
-### Load the integrated PulseAudio equalizer and D-Bus module
-load-module module-equalizer-sink
-load-module module-dbus-protocol
-```
+
 #### For grub theme;
 https://www.gnome-look.org/p/1009236/
 download it and setup with ```./Install```
-#### For Changing for default kernel or OS on boot;
-```
-yaourt -S grub-customizer
-```
-You can add `sudo nano /etc/default/grub` To disable sub menus on your end please add the following line:
-```
-GRUB_DISABLE_SUBMENU=y
-```
 
-Not:If you get any problem on boot, you can apply https://wiki.manjaro.org/index.php/Restore_the_GRUB_Bootloader#For_UEFI_Systems
-#### Install plymount (Opening screen-splash sreen);
+#### Install plymount (Opening screen-splash sreen)(Optional);
 ```
-yaourt -S plymouth-theme-arch-breeze-git
+trizen -S plymouth-theme-arch-breeze-git
 sudo plymouth-set-default-theme -R arch-breeze
 
 ```
