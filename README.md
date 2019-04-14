@@ -1,28 +1,20 @@
 ## Dell Inspiron 7559 Manjaro Linux Guide
 ![image](https://github.com/oguzkaganeren/manjarodell7559.github.io/blob/master/Screenshot%20from%202018-03-23%2021-29-18.png)
-You can download ise here[Link](https://downloads.sourceforge.net/manjarolinux/manjaro-gnome-17.1.4-stable-x86_64.iso)  and prepare bootable disk with rufus[Link](https://rufus.akeo.ie/) . After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. When your system is ready for installiation, you should apply these steps for getting any error.
-```
-sudo gedit /lib/calamares/modules/mhwdcfg/main.py
-```
-edit it with this;
-```
-def run():
-    """ Configure the hardware """
-    
-    mhwd = MhwdController()
-    
-    # return mhwd.run()
-    return None # <- Add this and comment the above line
-```
+You can download ise here[Link](https://downloads.sourceforge.net/manjarolinux/manjaro-gnome-17.1.4-stable-x86_64.iso)  and prepare bootable disk with rufus[Link](https://rufus.akeo.ie/) . After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. 
+
 Now, you can start the installiation.[Here](https://www.linuxtechi.com/manjaro-17-05-gnome-installation-guide-screenshots/)
 **After the installiation**
 add 
 ```systemd.mask=mhwd-live.service acpi_osi=! acpi_osi="Windows 2009" ``` 
 at boot with press e.
-Don't forget to add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT on` /etc/default/grub` and run `sudo update-grub`
-For Fastest pacman mirror;
+After started your system, add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT using`sudo nano /etc/default/grub` and run `sudo update-grub`
+### Fastest pacman
 ```
-sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+sudo pacman-mirrors --fasttrack
+```
+### Update Your System
+```
+sudo pacman -Syyu
 ```
 ### Open Wifi Hotspot
 ```
@@ -42,7 +34,7 @@ here[Link](https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_
 
 ### Packages I use
 ```
-sudo pacman -S --noconfirm --needed git pulseaudio pulseaudio-alsa alsa-utils alsa-plugins pavucontrol aria2 screenfetch ttf-ubuntu-font-family rxvt-unicode unace unrar zip unzip sharutils uudeview arj cabextract speedtest-cli ntp deepin-movie virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat tlp tlp-rdw iw smartmontools ethtool x86_energy_perf_policy lm_sensors thermald trizen intel-ucode xf86-video-fbdev deepin-calculator telegram-desktop gimp kdenlive inkscape terminus-font gufw firejail create_ap gedit virtualbox mtpaint
+sudo pacman -S --noconfirm --needed git pulseaudio pulseaudio-alsa alsa-utils alsa-plugins pavucontrol aria2 screenfetch ttf-ubuntu-font-family rxvt-unicode unace unrar zip unzip sharutils uudeview arj cabextract speedtest-cli ntp deepin-movie virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat tlp tlp-rdw iw smartmontools ethtool x86_energy_perf_policy lm_sensors thermald yay intel-ucode xf86-video-fbdev deepin-calculator telegram-desktop gimp kdenlive inkscape terminus-font gufw firejail create_ap gedit virtualbox mtpaint
 ```
 ### Power Settings
 ```
@@ -70,9 +62,10 @@ sudo mkinitcpio -P
 ```
 ### Aur Packages I use
 ```
-trizen -S --noedit materia-theme opera chromium spotify ttf-font-awesome ttf-font-awesome-4 powerline-fonts ttf-roboto  adobe-source-sans-pro-fonts android-studio woeusb-git visual-studio-code-bin papirus-icon-theme ntfs-3g  jdownloader2 ttf-ms-fonts ephifonts otf-exo oh-my-zsh-git uGet-Integrator
+yay -S --noconfirm materia-theme opera chromium spotify ttf-font-awesome ttf-font-awesome-4 powerline-fonts ttf-roboto  adobe-source-sans-pro-fonts android-studio woeusb-git visual-studio-code-bin papirus-icon-theme ntfs-3g  jdownloader2 ttf-ms-fonts ephifonts otf-exo oh-my-zsh-git uGet-Integrator
 ```
-In the terminal write this;
+### ZSH(Optional)
+In the terminal, write this;
 ```
 chsh -s /usr/bin/zsh
 ```
@@ -80,7 +73,7 @@ after that,
 ```
 sudo pacman -S zsh-theme-powerlevel9k 
 echo 'source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
-trizen -S zsh-autosuggestions 
+yay -S zsh-autosuggestions 
 echo 'source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
 
 ```
@@ -121,7 +114,7 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-autom
 ```
 #### Libre Office icon;
 ```
-trizen -S papirus-libreoffice-theme
+yay -S papirus-libreoffice-theme
 ```
 After that;
 LibreOffice->tools->options->View->Icon Style->Papirus
@@ -149,13 +142,9 @@ sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 ```
 
-#### For grub theme;
-https://www.gnome-look.org/p/1009236/
-download it and setup with ```./Install```
-
 #### Install plymount (Opening screen-splash sreen)(Optional);
 ```
-trizen -S plymouth-theme-arch-breeze-git
+yay -S plymouth-theme-arch-breeze-git
 sudo plymouth-set-default-theme -R arch-breeze
 
 ```
@@ -170,4 +159,19 @@ Open terminal in your SDK folder `/emulator/lib64/libstdc++`
 ```
 mv libstdc++.so.6 libstdc++.so.6.bak
 ln -s /usr/lib64/libstdc++.so.6
+```
+## Stuck at hardware detection
+>  :exclamation: When installing, It can be stuck at hardware detection. You can apply these settings. It does not appear the newer iso.
+```
+sudo gedit /lib/calamares/modules/mhwdcfg/main.py
+```
+edit it with this;
+```
+def run():
+    """ Configure the hardware """
+    
+    mhwd = MhwdController()
+    
+    # return mhwd.run()
+    return None # <- Add this and comment the above line
 ```
