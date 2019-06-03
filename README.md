@@ -53,7 +53,7 @@ sudo mkinitcpio -P
 ```
 ### Aur Packages I use
 ```
-yay -S --noconfirm materia-theme opera chromium spotify ttf-font-awesome ttf-font-awesome-4 powerline-fonts ttf-roboto  adobe-source-sans-pro-fonts android-studio woeusb-git visual-studio-code-bin papirus-icon-theme ntfs-3g  jdownloader2 ttf-ms-fonts ephifonts otf-exo oh-my-zsh-git uGet-Integrator thermald
+yay -S --noconfirm materia-theme opera chromium spotify ttf-font-awesome ttf-font-awesome-4 powerline-fonts ttf-roboto  adobe-source-sans-pro-fonts android-studio woeusb-git papirus-icon-theme ntfs-3g  jdownloader2 ttf-ms-fonts ephifonts otf-exo oh-my-zsh-git uGet-Integrator thermald vscodium-bin
 ```
 ### Power Settings
 ```
