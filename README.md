@@ -10,7 +10,7 @@ at boot with press e.
 After started your system, add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT using`sudo nano /etc/default/grub` and run `sudo update-grub`
 ### Fastest pacman
 ```
-sudo pacman-mirrors --fasttrack
+sudo pacman-mirrors --fasttrack 5
 ```
 ### Update Your System
 ```
@@ -22,15 +22,9 @@ sudo create_ap wlp5s0 wlp5s0 MyAccessPoint password
 ```
 ### For Nvidia
 ```
-sudo pacman -S virtualgl lib32-virtualgl lib32-primus primus
-
-sudo mhwd -f -i pci video-hybrid-intel-nvidia-bumblebee
-
-sudo systemctl enable bumblebeed
-sudo reboot
-optirun -b none nvidia-settings -c :8
+Use Manjaro Settings Manager > Hardware Configuration > Auto Install Proprietary Driver.
 ```
-here[Link](https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_settings_and_load_them_on_Startup#Bumblebee_and_Steam)
+
 
 ### Packages I use
 ```
@@ -64,19 +58,6 @@ sudo systemctl mask systemd-rfkill.socket systemd-rfkill.service
 sudo sensors-detect
 sudo systemctl enable thermald
 sudo systemctl start thermald
-```
-### ZSH(Optional)
-In the terminal, write this;
-```
-chsh -s /usr/bin/zsh
-```
-after that,
-```
-sudo pacman -S zsh-theme-powerlevel9k 
-echo 'source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
-yay -S zsh-autosuggestions 
-echo 'source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
-
 ```
 
 #### Shortkey
@@ -138,7 +119,7 @@ UUID=C480917680917022 /run/media/oguz/E ntfs-3g defaults  0 0
 >  :exclamation: If you use manjaro with dual boot, you should close fast-startup,hibarnate on your Windows, otherwise, you have not a write permission for other partitions.
 #### For Android Studio(KVM);
 ```
-sudo powerpill -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 ```
