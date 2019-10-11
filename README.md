@@ -61,18 +61,18 @@ sudo gpasswd -a <user> bumblebee
 reboot
 ```
 ### Set up Nvidia Prime
-** Step 1: remove bumblebee **
+* Step 1: remove bumblebee
 
 If you installed with the non-free driver option mhwd will have set up bumblebee for you. This will get in the way so the first step is to remove it. Use the mhwd command-line or simply remove it via Manjaro Settings Manager.
 
-** Step 2: install the NVIDIA driver **
+* Step 2: install the NVIDIA driver
 
 Use mhwd or MSM to install the nvidia driver in the normal way.
 
-** Step 3: fix mhwd's configuration ** 
+* Step 3: fix mhwd's configuration
 
 mhwd does the sensible thing and puts configuration in place as though the NVIDIA GPU was the only device available. We need to change this setup so PRIME will work.
-** Step 3.1: set up a new Xorg configuration ** 
+* Step 3.1: set up a new Xorg configuration
 
 Firstly, remove `/etc/X11/xorg.conf.d/90-mhwd.conf` and replace it with:
 `/etc/X11/xorg.conf.d/optimus.conf`
@@ -91,7 +91,7 @@ EndSection
 ```
 
 While the BusID value above should be correct for most Optimus laptops you should check your values with `lspci | grep -E "VGA|3D"`.
-** Step 3.2: Refine blacklisting ** 
+* Step 3.2: Refine blacklisting
 
 PRIME relies on nvidia-drm and mhwd puts it in a blacklist by default, but to ensure the nvidia kernel module will load we still need to blacklist certain other modules. Therefore, you'll have to do some editing of the files in `/etc/modprobe.d`.
 
@@ -108,16 +108,16 @@ blacklist nvidiafb
 blacklist rivafb
 ```
 
-** Step 4: enable nvidia-drm.modeset ** 
+* Step 4: enable nvidia-drm.modeset
 
 Create a new file,
 `/etc/modprobe.d/nvidia-drm.conf`
 ```
 options nvidia_drm modeset=1
 ```
-** Step 5: Set the output source for your DM. ** 
+* Step 5: Set the output source for your DM.
 
-** For GDM ** 
+* For GDM
 
 e.g. GNOME edition
 
