@@ -1,5 +1,4 @@
 ## Dell Inspiron 7559 Manjaro Linux Guide(Updated 11.10.19)
-![image](https://github.com/oguzkaganeren/manjarodell7559.github.io/blob/master/Screenshot%20from%202018-03-23%2021-29-18.png)
 You can download ise here[Link](https://manjaro.org/download/official/gnome/) and prepare bootable disk with rufus(DD mode)[Link](https://rufus.akeo.ie/) or if you are on linux, you can use etcher, DD, imagewriter etc.. After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. 
 
 Now, you can start the installiation. Follow the steps in the Manjaro User Guide. You can download it [Here](https://manjaro.org/support/userguide/) or find your on live manjaro system.
