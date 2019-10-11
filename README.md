@@ -21,7 +21,7 @@ sudo pacman -Syu
 
 ### Packages I use
 ```
-sudo pacman -S aria2 ttf-ubuntu-font-family speedtest-cli deepin-movie deepin-calculator telegram-desktop kdenlive inkscape create_ap gedit virtualbox fish flameshot deepin-terminal neofetch soundconverter gtop
+sudo pacman -S aria2 ttf-ubuntu-font-family speedtest-cli deepin-movie deepin-calculator telegram-desktop kdenlive inkscape create_ap gedit virtualbox fish flameshot deepin-terminal neofetch soundconverter gtop yay
 ```
 ### Change the bash shell to fish
 ```
