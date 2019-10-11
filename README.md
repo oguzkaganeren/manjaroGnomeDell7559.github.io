@@ -132,6 +132,11 @@ Exec=sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto
 NoDisplay=true
 X-GNOME-Autostart-Phase=DisplayServer
 ```
+and link it into place so it starts with GDM and on login
+```
+sudo ln -s /usr/local/share/optimus.desktop /usr/share/gdm/greeter/autostart/optimus.desktop
+sudo ln -s /usr/local/share/optimus.desktop /etc/xdg/autostart/optimus.desktop
+```
 Then `reboot`.
 ### Open gwe
 ```
