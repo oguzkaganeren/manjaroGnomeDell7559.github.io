@@ -65,10 +65,8 @@ optirun gwe --ctrl-display ":8"
 ```
 
 #### Shortkey
-For showing desktop:
-```
-wnckprop --show-desktop
-```
+For showing desktop, Settings > Keyboard > Hide all normal windows
+
 You change ctrl+alt+delete default value and add that;
 ```
 gnome-system-monitor
