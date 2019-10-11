@@ -1,12 +1,13 @@
-## Dell Inspiron 7559 Manjaro Linux Guide
+## Dell Inspiron 7559 Manjaro Linux Guide(Updated 11.10.19)
 ![image](https://github.com/oguzkaganeren/manjarodell7559.github.io/blob/master/Screenshot%20from%202018-03-23%2021-29-18.png)
-You can download ise here[Link](https://downloads.sourceforge.net/manjarolinux/manjaro-gnome-17.1.4-stable-x86_64.iso)  and prepare bootable disk with rufus[Link](https://rufus.akeo.ie/) . After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. 
+You can download ise here[Link](https://manjaro.org/download/official/gnome/) and prepare bootable disk with rufus(DD mode)[Link](https://rufus.akeo.ie/) or if you are on linux, you can use etcher, DD, imagewriter etc.. After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. 
 
-Now, you can start the installiation.[Here](https://www.linuxtechi.com/manjaro-17-05-gnome-installation-guide-screenshots/)
+Now, you can start the installiation. Follow the steps in the Manjaro User Guide. You can download it [Here](https://manjaro.org/support/userguide/) or find your on live manjaro system.
 **After the installiation**
 add 
-```systemd.mask=mhwd-live.service acpi_osi=! acpi_osi="Windows 2009" ``` 
+```acpi_osi=! acpi_osi="Windows 2009" ``` 
 at boot with press e.
+> This settings for nvidia bumblebee. If you use Nvidia prime do not apply it.
 After started your system, add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT using`sudo nano /etc/default/grub` and run `sudo update-grub`
 ### Fastest pacman
 ```
@@ -14,50 +15,54 @@ sudo pacman-mirrors --fasttrack 5
 ```
 ### Update Your System
 ```
-sudo pacman -Syyu
+sudo pacman -Syu
 ```
-### Open Wifi Hotspot
-```
-sudo create_ap wlp5s0 wlp5s0 MyAccessPoint password
-```
-### For Nvidia
-```
-Use Manjaro Settings Manager > Hardware Configuration > Auto Install Proprietary Driver.
-```
+
 
 
 ### Packages I use
 ```
-sudo pacman -S --noconfirm --needed git pulseaudio pulseaudio-alsa alsa-utils alsa-plugins pavucontrol aria2 screenfetch ttf-ubuntu-font-family rxvt-unicode unace unrar zip unzip sharutils uudeview arj cabextract speedtest-cli ntp deepin-movie virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat tlp tlp-rdw iw smartmontools ethtool x86_energy_perf_policy lm_sensors yay intel-ucode xf86-video-fbdev deepin-calculator telegram-desktop gimp kdenlive inkscape terminus-font gufw firejail create_ap gedit virtualbox mtpaint
+sudo pacman -S aria2 ttf-ubuntu-font-family speedtest-cli deepin-movie deepin-calculator telegram-desktop kdenlive inkscape create_ap gedit virtualbox fish flameshot deepin-terminal neofetch soundconverter gtop
 ```
-
-### INTEL - Enable Early Kernel Mode Setting for i915 module.
-Edit /etc/mkinitcpio.conf file and in MODULES section add i915.
+### Change the bash shell to fish
 ```
-# MODULES
-# The following modules are loaded before any boot hooks are
-# run.  Advanced users may wish to specify all system modules
-# in this array.  For instance:
-#     MODULES=(piix ide_disk reiserfs)
-MODULES=(i915)
+chsh -s /usr/bin/fish
+curl -L https://get.oh-my.fish | fish
+omf install bobthefish
 ```
-Save and
-```
-sudo mkinitcpio -P
-```
+## Customize shell and terminal
+Change `.config/fish/omf.fish` with [this](https://github.com/oguzkaganeren/manjaro-cinnamon-dell-7559/blob/master/.config/fish/omf.fish)
+Set default deepin terminal then open it. Right click on the terminal and switch theme `argonaut`.
 ### Aur Packages I use
 ```
-yay -S --noconfirm materia-theme opera chromium spotify ttf-font-awesome ttf-font-awesome-4 powerline-fonts ttf-roboto  adobe-source-sans-pro-fonts android-studio woeusb-git papirus-icon-theme ntfs-3g  jdownloader2 ttf-ms-fonts ephifonts otf-exo oh-my-zsh-git uGet-Integrator thermald vscodium-bin
+yay -S materia-theme opera chromium ttf-font-awesome ttf-font-awesome-4 ttf-roboto android-studio woeusb-git jdownloader2 ttf-ms-fonts vscodium-bin breeze-blurred-git otf-san-francisco xdman gwe svr zettlr-bin fslint waterfox-bin odio-appimage
 ```
-### Power Settings
+### Adblock Spotify
 ```
-sudo timedatectl set-ntp true
-sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
-sudo systemctl mask systemd-rfkill.socket systemd-rfkill.service
-sudo sensors-detect
-sudo systemctl enable thermald
-sudo systemctl start thermald
+yay -S --mflags --skipinteg --needed spotify spotify-adblock
+```
+>  :exclamation: If you have a SSD, you should enable fstrim.
+```
+sudo systemctl enable fstrim.timer
+```
+### If headphones not detected when restart (after startup not working, I am working on it )
+```
+sudo nano /etc/pulse/default.pa
+```
+at the bottom under `### Make some devices default` put
+```
+set-default-sink 1
+```
+### Installing Nvidia Drivers(bumblebee)
+Use Manjaro Setting Manager > Hardware Configuration > Auto Install Proprietary Driver
+After Installation,
+```
+sudo gpasswd -a <user> bumblebee
+reboot
+```
+### Open gwe
+```
+optirun gwe --ctrl-display ":8"
 ```
 
 #### Shortkey
@@ -69,31 +74,11 @@ You change ctrl+alt+delete default value and add that;
 ```
 gnome-system-monitor
 ```
-#### Editing terminal
-For Terminal;
+### Open Wifi Hotspot
 ```
-sudo gedit ~/.bashrc
+sudo create_ap wlp5s0 wlp5s0 MyAccessPoint password
 ```
-add that at bottom;
-```
-if [ -f /usr/bin/screenfetch ]; then screenfetch -D arch; fi
-```
-Select Materia-theme on tweak tools.
-```
-sudo cp -v /usr/share/gnome-shell/gnome-shell-theme.gresource{,~}
-GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | sed "s/'//g")
-sudo cp -v /usr/share{/themes/$GTK_THEME,}/gnome-shell/gnome-shell-theme.gresource
-```
-#### For closing bluetooth and nightlight;
-```
-sudo machinectl shell
-sudo systemctl stop bluetooth.service
-sudo systemctl disable bluetooth.service
-systemctl status bluetooth.service
-sudo systemctl mask bluetooth.service
-gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
-gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
-```
+
 #### Libre Office icon;
 ```
 yay -S papirus-libreoffice-theme
@@ -124,24 +109,6 @@ sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 ```
 
-#### Install plymount (Opening screen-splash sreen)(Optional);
-```
-yay -S plymouth-theme-arch-breeze-git
-sudo plymouth-set-default-theme -R arch-breeze
-
-```
-After that add ```splash``` in grub with grub customizer. For silent bot(removing boot message), you should add ` loglevel=3 rd.systemd.show_status=auto rd.udev.log_priority=3` in grub after splash command.
-# Solving Problems
-## Android Studio
-If you get
-`
-libGL error: unable to load driver: i965_dri.so
-`
-Open terminal in your SDK folder `/emulator/lib64/libstdc++`
-```
-mv libstdc++.so.6 libstdc++.so.6.bak
-ln -s /usr/lib64/libstdc++.so.6
-```
 ## Stuck at hardware detection
 >  :exclamation: When installing, It can be stuck at hardware detection. You can apply these settings. It does not appear the newer iso.
 ```
