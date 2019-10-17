@@ -200,3 +200,7 @@ def run():
     # return mhwd.run()
     return None # <- Add this and comment the above line
 ```
+## Fix ERROR: Cannot find the strip binary required for object file stripping.
+```
+sudo sudo pacman -S binutils make gcc pkg-config fakeroot
+```
