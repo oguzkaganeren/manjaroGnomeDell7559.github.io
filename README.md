@@ -1,13 +1,15 @@
-## Dell Inspiron 7559 Manjaro Linux Guide(Updated 11.10.19)
-You can download ise here[Link](https://manjaro.org/download/official/gnome/) and prepare bootable disk with rufus(DD mode)[Link](https://rufus.akeo.ie/) or if you are on linux, you can use etcher, DD, imagewriter etc.. After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. After that you see that Manjaro boot menu, select Boot:Manjaro Linux. 
+## Dell Inspiron 7559 Manjaro Linux Guide(Updated 28.11.19)
+You can download ise here[Link](https://manjaro.org/download/official/gnome/) and prepare bootable disk with rufus(DD mode)[Link](https://rufus.akeo.ie/) or if you are on linux, you can use etcher, DD, imagewriter etc..
+
+After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. Then you see that Manjaro boot menu, select Boot:Manjaro Linux. 
 
 Now, you can start the installiation. Follow the steps in the Manjaro User Guide. You can download it [Here](https://manjaro.org/support/userguide/) or find your on live manjaro system.
-**After the installiation**
-add 
+**After the installation, reboot your system. Press e when you see Manjaro Grub Screen(It appears if your system is dual-boot otherwise you should keep pressing shift button to show grub screen)**
+then add the line after `quiet` word.
 ```acpi_osi=! acpi_osi="Windows 2009" ``` 
-at boot with press e.
-> This settings for nvidia bumblebee. If you use Nvidia prime do not apply it.
-After started your system, add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT using`sudo nano /etc/default/grub` and run `sudo update-grub`
+
+
+After start your system, add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT using`sudo nano /etc/default/grub` and run `sudo update-grub`
 ### Fastest pacman
 ```
 sudo pacman-mirrors --fasttrack 5
