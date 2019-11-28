@@ -39,7 +39,7 @@ curl -L https://get.oh-my.fish | fish
 omf install bobthefish
 ```
 ## Customize shell and terminal
-Change `.config/fish/omf.fish` with [this](https://github.com/oguzkaganeren/manjaro-cinnamon-dell-7559/blob/master/.config/fish/omf.fish)
+Change `.config/fish/conf.d/omf.fish` with [this](https://github.com/oguzkaganeren/manjaro-cinnamon-dell-7559/blob/master/.config/fish/omf.fish)
 Set default deepin terminal then open it. Right click on the terminal and switch theme `argonaut`.
 ### Aur Packages I use
 ```
