@@ -8,8 +8,15 @@ Now, you can start the installiation. Follow the steps in the Manjaro User Guide
 then add the line after `quiet` word.
 ```acpi_osi=! acpi_osi="Windows 2009" ``` 
 
+```
+sudo nano /etc/default/grub 
+```
+> GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi_osi=! acpi_osi=\"Windows 2009\" acpi_backlight=vendor"
 
-After start your system, add `acpi_osi=! acpi_osi=\"Windows 2009\" `to your GRUB_CMDLINE_LINUX_DEFAULT using`sudo nano /etc/default/grub` and run `sudo update-grub`
+```
+sudo update-grub
+```
+
 ### Fastest pacman
 ```
 sudo pacman-mirrors --fasttrack 5
@@ -23,7 +30,7 @@ sudo pacman -Syu
 
 ### Packages I use
 ```
-sudo pacman -S aria2 ttf-ubuntu-font-family speedtest-cli deepin-movie deepin-calculator telegram-desktop kdenlive inkscape create_ap gedit virtualbox fish flameshot deepin-terminal neofetch soundconverter gtop yay
+sudo pacman -S aria2 speedtest-cli telegram-desktop kdenlive inkscape create_ap virtualbox fish flameshot deepin-terminal neofetch gtop kolourpaint
 ```
 ### Change the bash shell to fish
 ```
@@ -36,7 +43,7 @@ Change `.config/fish/omf.fish` with [this](https://github.com/oguzkaganeren/manj
 Set default deepin terminal then open it. Right click on the terminal and switch theme `argonaut`.
 ### Aur Packages I use
 ```
-yay -S materia-theme opera chromium ttf-font-awesome ttf-font-awesome-4 ttf-roboto android-studio woeusb-git jdownloader2 ttf-ms-fonts vscodium-bin breeze-blurred-git otf-san-francisco xdman gwe svr zettlr-bin fslint waterfox-bin odio-appimage
+yay -S materia-theme opera ungoogled-chromium-bin ttf-font-awesome ttf-font-awesome-4 ttf-roboto android-studio woeusb-git jdownloader2 ttf-ms-fonts vscodium-bin breeze-blurred-git otf-san-francisco xdman gwe svr zettlr-bin fslint waterfox-bin odio-appimage skypeforlinux-stable-bin posy-cursors all-repository-fonts
 ```
 ### Adblock Spotify
 ```
@@ -45,6 +52,10 @@ yay -S --mflags --skipinteg --needed spotify spotify-adblock
 >  :exclamation: If you have a SSD, you should enable fstrim.
 ```
 sudo systemctl enable fstrim.timer
+```
+### If skype not run
+```
+sudo sysctl kernel.unprivileged_userns_clone=1
 ```
 ### If headphones not detected when restart (after startup not working, I am working on it )
 ```
