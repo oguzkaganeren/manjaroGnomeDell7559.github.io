@@ -1,9 +1,9 @@
 ## Dell Inspiron 7559 Manjaro Linux Guide(Updated 28.11.19)
-You can download ise here[Link](https://manjaro.org/download/official/gnome/) and prepare bootable disk with rufus(DD mode)[Link](https://rufus.akeo.ie/) or if you are on linux, you can use etcher, DD, imagewriter etc..
+You can download it [here](https://manjaro.org/download/official/gnome/) and prepare bootable disk with [rufus](https://rufus.akeo.ie/) (with DD mode) or if you are on linux, you can use etcher, DD, imagewriter etc..
 
 After that, reboot your computer and when you see the dell logo, you should press F2 and disable boot secure in boot section, then close the bios with F10(Yes). Again at the dell logo, you should press F12 and select your bootable disk. Then you see that Manjaro boot menu, select Boot:Manjaro Linux. 
 
-Now, you can start the installiation. Follow the steps in the Manjaro User Guide. You can download it [Here](https://manjaro.org/support/userguide/) or find your on live manjaro system.
+Now, you can start the installiation. Follow the steps in the Manjaro User Guide. You can download [Manjaro User Guide](https://manjaro.org/support/userguide/) or find your on live manjaro system.
 **After the installation, reboot your system. Press e when you see Manjaro Grub Screen(It appears if your system is dual-boot otherwise you should keep pressing shift button to show grub screen)**
 then add the line after `quiet` word.
 ```acpi_osi=! acpi_osi="Windows 2009" ``` 
@@ -71,91 +71,7 @@ at the bottom under `### Make some devices default` put
 set-default-sink 1
 ```
 ## Nvidia Options
-### Installing Nvidia Drivers(bumblebee)
-Use Manjaro Setting Manager > Hardware Configuration > Auto Install Proprietary Driver
-After Installation,
-```
-sudo gpasswd -a <user> bumblebee
-reboot
-```
-### Set up Nvidia Prime
-* Step 1: remove bumblebee
-
-If you installed with the non-free driver option mhwd will have set up bumblebee for you. This will get in the way so the first step is to remove it. Use the mhwd command-line or simply remove it via Manjaro Settings Manager.
-
-* Step 2: install the NVIDIA driver
-
-Use mhwd or MSM to install the nvidia driver in the normal way.
-
-* Step 3: fix mhwd's configuration
-
-mhwd does the sensible thing and puts configuration in place as though the NVIDIA GPU was the only device available. We need to change this setup so PRIME will work.
-* Step 3.1: set up a new Xorg configuration
-
-Firstly, remove `/etc/X11/xorg.conf.d/90-mhwd.conf` and replace it with:
-`/etc/X11/xorg.conf.d/optimus.conf`
-
-```
-Section "Module"
-    Load "modesetting"
-EndSection
-
-Section "Device"
-    Identifier "nvidia"
-    Driver "nvidia"
-    BusID "PCI:1:0:0"
-    Option "AllowEmptyInitialConfiguration"
-EndSection
-```
-
-While the BusID value above should be correct for most Optimus laptops you should check your values with `lspci | grep -E "VGA|3D"`.
-* Step 3.2: Refine blacklisting
-
-PRIME relies on nvidia-drm and mhwd puts it in a blacklist by default, but to ensure the nvidia kernel module will load we still need to blacklist certain other modules. Therefore, you'll have to do some editing of the files in `/etc/modprobe.d`.
-
-To remove the existing blacklist, edit, move or remove any related `mhwd-*` files in `/etc/modprobe.d/`, e.g.
-```
-ls /etc/modprobe.d/mhwd*
-sudo rm /etc/modprobe.d/mhwd-gpu.conf
-sudo rm /etc/modprobe.d/mhwd-nvidia.conf
-```
-The end result must include a blacklist of the following modules, e.g. in `/etc/modprobe.d/nvidia.conf`:
-```
-blacklist nouveau
-blacklist nvidiafb
-blacklist rivafb
-```
-
-* Step 4: enable nvidia-drm.modeset
-
-Create a new file,
-`/etc/modprobe.d/nvidia-drm.conf`
-```
-options nvidia_drm modeset=1
-```
-* Step 5: Set the output source for your DM.
-
-* For GDM
-
-e.g. GNOME edition
-
-Create a new file,
-`/usr/local/share/optimus.desktop`
-
-```
-[Desktop Entry]
-Type=Application
-Name=Optimus
-Exec=sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
-NoDisplay=true
-X-GNOME-Autostart-Phase=DisplayServer
-```
-and link it into place so it starts with GDM and on login
-```
-sudo ln -s /usr/local/share/optimus.desktop /usr/share/gdm/greeter/autostart/optimus.desktop
-sudo ln -s /usr/local/share/optimus.desktop /etc/xdg/autostart/optimus.desktop
-```
-Then `reboot`.
+**There are many options for installing nvidia driver. Follow the [link](https://forum.manjaro.org/t/options-for-nvidia-optimus-graphics/75185)**
 ### Open gwe
 ```
 optirun gwe --ctrl-display ":8"
