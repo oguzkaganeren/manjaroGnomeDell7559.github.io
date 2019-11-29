@@ -30,7 +30,7 @@ sudo pacman -Syu
 
 ### Packages I use
 ```
-sudo pacman -S yay aria2 speedtest-cli telegram-desktop kdenlive inkscape create_ap virtualbox fish flameshot deepin-terminal neofetch gtop kolourpaint autoconf binutils make gcc pkg-config fakeroot libtool automake
+sudo pacman -S yay aria2 speedtest-cli telegram-desktop kdenlive inkscape create_ap virtualbox fish flameshot deepin-terminal neofetch gtop kolourpaint autoconf binutils make gcc pkg-config fakeroot libtool automake patch
 ```
 ### Change the bash shell to fish
 ```
