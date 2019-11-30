@@ -62,13 +62,14 @@ sudo systemctl enable fstrim.timer
 ```
 sudo sysctl kernel.unprivileged_userns_clone=1
 ```
-### If headphones not detected when restart (after startup not working, I am working on it )
+### If headphones not detected when restart
 ```
 sudo nano /etc/pulse/default.pa
 ```
 at the bottom under `### Make some devices default` put
 ```
-set-default-sink 1
+set-default-sink 3
+set-default-source 3
 ```
 ## Nvidia Options
 **There are many options for installing nvidia driver. Follow the [link](https://forum.manjaro.org/t/options-for-nvidia-optimus-graphics/75185)**
